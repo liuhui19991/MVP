@@ -5,7 +5,7 @@ package cn.world.mvpdemo.base;
  */
 
 public abstract class BasePresenter<V> {
-    private V mView;
+    public V mView;//这里view必须使用public才能在presenter中调用他的方法使得在activity中使用
 
     public void attach(V view) {
         mView = view;
