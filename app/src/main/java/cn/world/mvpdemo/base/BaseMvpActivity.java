@@ -19,12 +19,13 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
 
     @Override
     protected void onResume() {
-        presenter.attach((V) this);
-
+        super.onResume();
+        presenter.setView((V) this);
     }
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         presenter.dettach();
     }
 

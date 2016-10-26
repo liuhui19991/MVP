@@ -21,10 +21,9 @@ public class IPresenter extends BasePresenter<IView> {
 
     }
 
-    //在此方法中进行版本检查
-    public void onResume() {
-            //在此处做网络请求
+    @Override
+    protected void requestMessage() {
+        //在此处做网络请求
         mView.showMessage();//此方法回调到activity重写的地方使用
-
     }
 }
