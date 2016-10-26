@@ -20,7 +20,6 @@ public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements I
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.onResume();
     }
 
     @Override
