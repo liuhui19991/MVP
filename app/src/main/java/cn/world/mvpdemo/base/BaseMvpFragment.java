@@ -30,9 +30,9 @@ public abstract class BaseMvpFragment<V, T extends BasePresenter<V>> extends Fra
             parent.removeView(mContentView);
         }
         mContext = getActivity();
-        ButterKnife.bind(this, mContentView);
-        initView();
-        initListener();
+//        ButterKnife.bind(this, mContentView);
+//        initView();
+//        initListener();
         return mContentView;
     }
 

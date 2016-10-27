@@ -11,6 +11,11 @@ import cn.world.mvpdemo.mvp.view.IView;
 public class MvpFragment extends BaseMvpFragment<IView,IPresenter> implements IView {
 
     @Override
+    protected int getLayoutId() {
+        return 0;
+    }
+
+    @Override
     public IPresenter initPresenter() {
         return null;
     }

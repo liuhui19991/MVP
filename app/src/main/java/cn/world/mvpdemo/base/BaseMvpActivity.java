@@ -16,24 +16,23 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
-        setContentView(getLayoutId());
-        ButterKnife.bind(this);//绑定黄油刀
-        initActionBar();
-        initWindow();
-        initView();
-        initListener();
+//        setContentView(getLayoutId());
+//        ButterKnife.bind(this);//绑定黄油刀
+//        initActionBar();
+//        initWindow();
+//        initView();
+//        initListener();
         presenter = initPresent();
     }
 
-    protected abstract int getLayoutId();
-
     protected abstract T initPresent();
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.setView((V) this);
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        presenter.setView((V) this);//这里需要在哪里请求网络,就在哪里设置这句
+//        Log.i("lh","base");
+//    }
 
     @Override
     protected void onDestroy() {
