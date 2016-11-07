@@ -1,6 +1,7 @@
 package cn.world.mvpdemo.mvp.activity;
 
 
+import android.view.View;
 import android.widget.TextView;
 
 import cn.world.mvpdemo.R;
@@ -13,7 +14,7 @@ import cn.world.mvpdemo.mvp.view.IView;
  * Created by liuhui on 2016/10/24.
  */
 
-public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements IView {
+public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements IView, View.OnClickListener {
 
 
     private TextView mTextView;
@@ -26,6 +27,7 @@ public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements I
     @Override
     protected void initView() {
         mTextView = (TextView) findViewById(R.id.tv);
+        mTextView.setOnClickListener(this);
     }
 
     @Override
@@ -42,6 +44,11 @@ public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements I
     @Override
     public void showMessage(MvpModel domain) {
         mTextView.setText(domain.getApkVersion()+"\n"+domain.getCode());
+    }
+
+    @Override
+    public void onClick(View view) {
+        presenter.loadMore();
     }
 //MVP文章
 //http://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650236866&idx=1&sn=da666831f67303eeb7a57c1591204b43&mpshare=1&scene=23&srcid=1102DuqUt13ekmD10hxngM0Y#rd

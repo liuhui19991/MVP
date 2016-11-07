@@ -1,6 +1,7 @@
 package cn.world.mvpdemo.mvp.presenter;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import cn.world.mvpdemo.base.BasePresenter;
 import cn.world.mvpdemo.mvp.domain.MvpModel;
@@ -21,12 +22,15 @@ public class IPresenter extends BasePresenter<IView> {
 
     }
 
+    public void loadMore() {
+        Toast.makeText(mContext, "加载更多", Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     protected void requestMessage() {
         mModel.setApkVersion("8.8.8");
         mModel.setCode(6);
         //在此处做网络请求
         mView.showMessage(mModel);//此方法回调到activity重写的地方使用
-
     }
 }
