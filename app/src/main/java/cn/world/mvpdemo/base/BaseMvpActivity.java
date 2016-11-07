@@ -6,11 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by liuhui on 2016/10/24.
+ * Created by luhui on 2016/10/24.
  */
 
-public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
-    public T presenter;
+public abstract class BaseMvpActivity<V, P extends BasePresenter<V>> extends AppCompatActivity {
+    public P presenter;
     protected Activity mContext;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +21,6 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
 //        ButterKnife.bind(this);//绑定黄油刀
 //        initActionBar();
 //        initWindow();
-//        initView();
 //        initListener();
         presenter = initPresent();
     }
@@ -30,11 +29,10 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
 
     protected abstract int getLayoutId();
 
-    protected abstract T initPresent();
+    protected abstract P initPresent();
 
 //    @Override
-//    protected void onResume() {
-//        super.onResume();
+//    protected void onResume() {//        super.onResume();
 //        presenter.setView((V) this);//这里需要在哪里请求网络,就在哪里设置这句
 //        Log.i("lh","base");
 //    }

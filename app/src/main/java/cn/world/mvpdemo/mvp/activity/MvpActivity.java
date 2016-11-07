@@ -1,7 +1,6 @@
 package cn.world.mvpdemo.mvp.activity;
 
 
-import android.util.Log;
 import android.widget.TextView;
 
 import cn.world.mvpdemo.R;
@@ -38,13 +37,12 @@ public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements I
     protected void onResume() {
         super.onResume();
         presenter.setView(this);//这里需要在哪里请求网络,就在哪里设置这句
-        Log.i("lh", "imple");
     }
 
     @Override
     public void showMessage(MvpModel domain) {
         mTextView.setText(domain.getApkVersion()+"\n"+domain.getCode());
     }
-//MVP的例子
+//MVP文章
 //http://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650236866&idx=1&sn=da666831f67303eeb7a57c1591204b43&mpshare=1&scene=23&srcid=1102DuqUt13ekmD10hxngM0Y#rd
 }
