@@ -1,6 +1,7 @@
 package cn.world.mvpdemo.mvp.fragment;
 
 import cn.world.mvpdemo.base.BaseMvpFragment;
+import cn.world.mvpdemo.mvp.domain.MvpModel;
 import cn.world.mvpdemo.mvp.presenter.IPresenter;
 import cn.world.mvpdemo.mvp.view.IView;
 
@@ -21,7 +22,6 @@ public class MvpFragment extends BaseMvpFragment<IView,IPresenter> implements IV
     }
 
     @Override
-    public void showMessage() {
-
+    public void showMessage(MvpModel domain) {
     }
 }

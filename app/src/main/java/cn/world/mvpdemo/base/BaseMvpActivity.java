@@ -16,7 +16,8 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
-//        setContentView(getLayoutId());
+        setContentView(getLayoutId());
+        initView();
 //        ButterKnife.bind(this);//绑定黄油刀
 //        initActionBar();
 //        initWindow();
@@ -24,6 +25,10 @@ public abstract class BaseMvpActivity<V, T extends BasePresenter<V>> extends App
 //        initListener();
         presenter = initPresent();
     }
+
+    protected abstract void initView();
+
+    protected abstract int getLayoutId();
 
     protected abstract T initPresent();
 

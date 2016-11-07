@@ -2,8 +2,11 @@ package cn.world.mvpdemo.mvp.activity;
 
 
 import android.util.Log;
+import android.widget.TextView;
 
+import cn.world.mvpdemo.R;
 import cn.world.mvpdemo.base.BaseMvpActivity;
+import cn.world.mvpdemo.mvp.domain.MvpModel;
 import cn.world.mvpdemo.mvp.presenter.IPresenter;
 import cn.world.mvpdemo.mvp.view.IView;
 
@@ -13,6 +16,18 @@ import cn.world.mvpdemo.mvp.view.IView;
 
 public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements IView {
 
+
+    private TextView mTextView;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_mvp;
+    }
+
+    @Override
+    protected void initView() {
+        mTextView = (TextView) findViewById(R.id.tv);
+    }
 
     @Override
     public IPresenter initPresent() {
@@ -27,7 +42,9 @@ public class MvpActivity extends BaseMvpActivity<IView, IPresenter> implements I
     }
 
     @Override
-    public void showMessage() {
-
+    public void showMessage(MvpModel domain) {
+        mTextView.setText(domain.getApkVersion()+"\n"+domain.getCode());
     }
+//MVP的例子
+//http://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650236866&idx=1&sn=da666831f67303eeb7a57c1591204b43&mpshare=1&scene=23&srcid=1102DuqUt13ekmD10hxngM0Y#rd
 }

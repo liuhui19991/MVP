@@ -23,7 +23,10 @@ public class IPresenter extends BasePresenter<IView> {
 
     @Override
     protected void requestMessage() {
+        mModel.setApkVersion("8.8.8");
+        mModel.setCode(6);
         //在此处做网络请求
-        mView.showMessage();//此方法回调到activity重写的地方使用
+        mView.showMessage(mModel);//此方法回调到activity重写的地方使用
+
     }
 }
